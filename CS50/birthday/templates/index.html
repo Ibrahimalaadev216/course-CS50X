@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+ <body>
+    <body>
+    <h1>Friends' Birthdays 🎂</h1>
+
+    <form action="/" method="post">
+        <input name="name" type="text" placeholder="Name" required>
+        <input name="month" type="number" min="1" max="12" placeholder="Month" required>
+        <input name="day" type="number" min="1" max="31" placeholder="Day" required>
+        <button type="submit">Add Birthday</button>
+    </form>
+
+    <h2>All Birthdays</h2>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Name</th>
+            <th>Month</th>
+            <th>Day</th>
+        </tr>
+        {% for birthday in birthdays %}
+        <tr>
+            <td>{{ birthday.name }}</td>
+            <td>{{ birthday.month }}</td>
+            <td>{{ birthday.day }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+ </body>
+
+</html>

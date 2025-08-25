@@ -1,0 +1,32 @@
+Project: Simple Personal Homepage
+
+Purpose:
+- Create a simple personal homepage that introduces me and shows my favorite hobby.
+- Use only HTML, CSS, and JavaScript.
+
+Content:
+- Header with my name, avatar, and a short tagline.
+- "About me" section with a short description.
+- "My hobby" section with details about my hobby + small tags (badges).
+- A small interactive quiz related to the hobby.
+- Gallery with a few sample images.
+- Contact form (demo only, not functional).
+- Sidebar with quick info like age, location, and skills.
+
+Features:
+- Dark/Light theme toggle button.
+- Responsive design (works on desktop and mobile).
+- Copy button that copies a short intro text.
+
+Files:
+- index.html (contains all code).
+- Images are loaded from Unsplash (can be replaced with my own).
+
+How to use:
+- Open index.html in any modern browser.
+- Edit name, hobby, and location inside the code.
+- Can be uploaded to GitHub Pages or any free hosting service.
+
+Notes:
+- Contact form is only for display, it doesn’t send messages.
+- Frontend only, no backend.

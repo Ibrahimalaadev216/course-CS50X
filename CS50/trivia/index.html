@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Trivia Quiz</h1>
+
+    <h2>Part 1</h2>
+    <div id="mcq">
+        <h3>What is the capital of France?</h3>
+        <button class="answer" data-correct="false">London</button>
+        <button class="answer" data-correct="false">Berlin</button>
+        <button class="answer" data-correct="true">Paris</button>
+        <p id="mcq-result"></p>
+    </div>
+    <h2>Part 2</h2>
+    <div id="frq">
+        <h3>What is 5 + 7?</h3>
+        <input type="text" id="free-response" placeholder="Type your answer">
+        <button id="submit-frq">Submit</button>
+        <p id="frq-result"></p>
+    </div>
+
+    <script src="script.js">
+const mcqButtons = document.querySelectorAll('#mcq .answer');
+const mcqResult = document.getElementById('mcq-result');
+
+mcqButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const correct = button.getAttribute('data-correct') === 'true';
+        if (correct) {
+            button.classList.add('correct');
+            mcqResult.textContent = 'Correct!';
+        } else {
+            button.classList.add('incorrect');
+            mcqResult.textContent = 'Incorrect';
+        }
+        mcqButtons.forEach(btn => btn.disabled = true);
+    });
+});
+
+const frqInput = document.getElementById('free-response');
+const frqButton = document.getElementById('submit-frq');
+const frqResult = document.getElementById('frq-result');
+const correctAnswer = '12';
+
+frqButton.addEventListener('click', () => {
+    const userAnswer = frqInput.value.trim();
+    if (userAnswer === correctAnswer) {
+        frqInput.classList.add('correct');
+        frqResult.textContent = 'Correct!';
+    } else {
+        frqInput.classList.add('incorrect');
+        frqResult.textContent = 'Incorrect';
+    }
+    frqInput.disabled = true;
+    frqButton.disabled = true;
+});
+
+    </script>
+</body>
+</html>
