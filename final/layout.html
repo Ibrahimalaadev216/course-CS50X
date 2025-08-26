@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>StudyNotes - {% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">StudyNotes</a>
+  <ul class="navbar-nav">
+    {% if session.user_id %}
+      <li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+      <li class="nav-item"><a class="nav-link" href="/profile/{{ session.user_id }}">Profile</a></li>
+      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    {% else %}
+      <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+    {% endif %}
+  </ul>
+  <form class="d-flex" action="/search" method="get">
+      <input class="form-control me-2" type="search" name="q" placeholder="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+</nav>
+<main class="container p-5">
+  {% block main %}{% endblock %}
+</main>
+</body>
+</html>
